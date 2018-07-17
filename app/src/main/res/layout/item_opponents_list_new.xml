@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fffdfd"
+    android:orientation="vertical"
+    android:padding="3dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="#f7f7f7"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <ImageView
+                    android:id="@+id/image_opponent_icon"
+                    style="@style/ListItemIconStyle"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_person" />
+
+                <TextView
+                    android:id="@+id/opponentsName"
+                    style="@style/MatchWidthnew"
+                    android:layout_weight="4.5"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    tools:text="User Name"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/oponentsTxtColor"
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:id="@+id/opponentsQlftn"
+                    style="@style/MatchWidthnew"
+                    android:layout_weight="2.5"
+                    android:textColor="@color/oponentsTxtColor"
+                    android:textSize="12sp"
+                    tools:text="Qualification"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="italic"/>
+
+                <ImageView
+                    android:id="@+id/image_video_call"
+                    style="@style/ListItem_Video_Audio_IconStyle"
+                    android:layout_weight="1"
+                    android:src="@drawable/vcalla" />
+
+                <ImageView
+                    android:id="@+id/image_audio_call"
+                    style="@style/ListItem_Video_Audio_IconStyle"
+                    android:layout_weight="1"
+                    android:src="@drawable/acall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:weightSum="3"
+                android:padding="5dp"
+                android:layout_marginStart="0dp"
+                >
+                <TextView
+                    android:id="@+id/speciality"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/oponentsTxtColor"
+                    android:textSize="12sp"
+                    android:text="speciality"
+                    />
+                <TextView
+                    android:id="@+id/city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/oponentsTxtColor"                    android:textSize="12sp"
+                    android:text="city"
+                    />
+                <TextView
+                    android:id="@+id/docId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/oponentsTxtColor"                    android:textSize="12sp"
+                    android:text="docId"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>
