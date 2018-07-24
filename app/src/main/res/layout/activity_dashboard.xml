@@ -11,21 +11,27 @@
         android:id="@+id/relativeLayout1"
         style="@style/header_style"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_alignParentTop="true">
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_centerInParent="true"
             android:text="@string/app_name"
             android:gravity="center"
             android:textColor="#ffffff"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"/>
-
-
+        <ImageButton
+            android:id="@+id/logOUTBtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/logout"
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true"
+            />
     </RelativeLayout>
 
 
@@ -68,7 +74,7 @@
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="Next"
         android:textColor="@color/white"
         android:layout_alignParentBottom="true"

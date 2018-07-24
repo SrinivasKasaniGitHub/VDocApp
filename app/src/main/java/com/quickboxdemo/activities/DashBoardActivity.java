@@ -11,9 +11,14 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -23,8 +28,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.quickblox.core.QBEntityCallback;
+import com.quickblox.core.exception.QBResponseException;
+import com.quickblox.sample.core.utils.SharedPrefsHelper;
+import com.quickblox.users.model.QBUser;
+import com.quickboxdemo.App;
 import com.quickboxdemo.R;
+import com.quickboxdemo.util.QBResRequestExecutor;
 import com.quickboxdemo.utils.Consts;
+import com.quickboxdemo.utils.UsersUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -55,13 +67,30 @@ public class DashBoardActivity extends AppCompatActivity {
     private View btnGo;
     private ArrayList<String> selectedStrings;
     private static String[] numbers;
+    SharedPrefsHelper sharedPrefsHelper;
 
     ProgressDialog pd;
+    String currentUserFullName;
+    TextView userName;
+    ImageButton logOUTBtn;
+    protected QBResRequestExecutor requestExecutor;
+    private QBUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        userName=(TextView)findViewById(R.id.userName);
+        logOUTBtn=(ImageButton)findViewById(R.id.logOUTBtn);
+        sharedPrefsHelper = SharedPrefsHelper.getInstance();
+        requestExecutor = App.getInstance().getQbResRequestExecutor();
+        currentUserFullName="";
+
+        if (sharedPrefsHelper.getQbUser() != null) {
+            currentUserFullName = sharedPrefsHelper.getQbUser().getFullName();
+            currentUser = sharedPrefsHelper.getQbUser();
+        }
+        userName.setText("VDoc ("+currentUserFullName+")");
 
         pd = new ProgressDialog(DashBoardActivity.this);
         getSymptomsList();
@@ -86,7 +115,32 @@ public class DashBoardActivity extends AppCompatActivity {
 
             }
         });
+        logOUTBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                removeAllUserData();
+                Intent loginAct=new Intent(getApplicationContext(),LoginActivity.class);
+                loginAct.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                finish();
+                startActivity(loginAct);
+            }
+        });
 
+    }
+
+    private void removeAllUserData() {
+        UsersUtils.removeUserData(getApplicationContext());
+        requestExecutor.deleteCurrentUser(currentUser.getId(), new QBEntityCallback<Void>() {
+            @Override
+            public void onSuccess(Void aVoid, Bundle bundle) {
+
+            }
+
+            @Override
+            public void onError(QBResponseException e) {
+
+            }
+        });
     }
 
     @Override
@@ -94,6 +148,7 @@ public class DashBoardActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
+
 
     public void getSymptomsList() {
 

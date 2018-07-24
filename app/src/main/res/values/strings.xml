@@ -2,7 +2,7 @@
 <resources>
 
     <string name="current_version">0.9.1</string>
-    <string name="app_name">SecondOpinion</string>
+    <string name="app_name">VDoc</string>
     <string name="splash_app_title">Video &amp; Audio \nChat Sample</string>
     <string name="splash_create_session_error">Create session errors:</string>
 

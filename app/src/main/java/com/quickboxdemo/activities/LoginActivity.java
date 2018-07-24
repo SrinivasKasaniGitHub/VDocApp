@@ -197,6 +197,11 @@ public class LoginActivity extends BaseActivity {
         };
         requestQueue_Authenticaation.add(req_Authentication);
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
     private void initUI() {
         setActionBarTitle(R.string.title_login_activity);
@@ -208,7 +213,7 @@ public class LoginActivity extends BaseActivity {
         edt_login_pwd=(EditText)findViewById(R.id.login_pwd);
 
         chatRoomNameEditText = (EditText) findViewById(R.id.chat_room_name);
-        chatRoomNameEditText.setText("vdocOpinion");
+        chatRoomNameEditText.setText("vdocOpionN");
         chatRoomNameEditText.addTextChangedListener(new LoginEditTextWatcher(chatRoomNameEditText));
     }
 

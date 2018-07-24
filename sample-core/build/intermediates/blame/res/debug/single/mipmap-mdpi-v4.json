@@ -1,13 +1,5 @@
 [
     {
-        "merged": "E:\\IQApps\\SecondOpinion\\sample-core\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_notification.png",
-        "source": "E:\\IQApps\\SecondOpinion\\sample-core\\src\\main\\res\\mipmap-mdpi\\ic_notification.png"
-    },
-    {
-        "merged": "E:\\IQApps\\SecondOpinion\\sample-core\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
-        "source": "E:\\IQApps\\SecondOpinion\\sample-core\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
-    },
-    {
         "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_notification.png",
         "source": "E:\\IQApps\\VDocApp\\sample-core\\src\\main\\res\\mipmap-mdpi\\ic_notification.png"
     },

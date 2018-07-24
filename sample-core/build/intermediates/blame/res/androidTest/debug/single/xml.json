@@ -1,9 +1,5 @@
 [
     {
-        "merged": "E:\\IQApps\\SecondOpinion\\sample-core\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\provider_paths.xml",
-        "source": "E:\\IQApps\\SecondOpinion\\sample-core\\build\\intermediates\\bundles\\debug\\res\\xml\\provider_paths.xml"
-    },
-    {
         "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\provider_paths.xml",
         "source": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\bundles\\debug\\res\\xml\\provider_paths.xml"
     }
