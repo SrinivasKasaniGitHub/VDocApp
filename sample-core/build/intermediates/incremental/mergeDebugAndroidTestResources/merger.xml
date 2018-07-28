@@ -2034,7 +2034,7 @@
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="actionBarTheme">@style/DarkActionBarTheme</item>
-    </style><color name="random_color_8">#d0021b</color><string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">eedf663e-8b47-4f49-ac73-3faab33ec7d9</string><color name="random_color_9">#166642</color><color name="random_color_6">#a727a5</color><color name="text_color_dark_grey">#6e6e6e</color><color name="random_color_7">#77a6d0</color><style name="MatchWidth">
+    </style><color name="random_color_8">#d0021b</color><string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">d5ad1c65-a85b-4f5c-8b10-be45425cc31a</string><color name="random_color_9">#166642</color><color name="random_color_6">#a727a5</color><color name="text_color_dark_grey">#6e6e6e</color><color name="random_color_7">#77a6d0</color><style name="MatchWidth">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style><color name="random_color_4">#4cd964</color><color name="random_color_5">#c3c1f2</color><color name="random_color_2">#007aff</color><style name="MatchHeight">

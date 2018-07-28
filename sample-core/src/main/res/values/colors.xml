@@ -5,10 +5,11 @@
     <color name="white">#ffffff</color>
 
     <color name="color_primary">@color/white</color>
-    <color name="color_primary_dark">#d0d0d0</color>
-    <color name="color_accent">@color/color_green_qb</color>
+    <color name="color_primary_dark">@color/white</color>
+    <color name="color_accent">@color/white</color>
 
     <color name="background_app_color">#ffffff</color>
+    <color name="appTxtColor">#4682B4</color>
 
     <color name="color_blue_qb">#046ad0</color>
     <color name="color_green_qb">#4ad24d</color>

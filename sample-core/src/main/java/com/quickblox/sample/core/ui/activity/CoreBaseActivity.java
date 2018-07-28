@@ -1,11 +1,16 @@
 package com.quickblox.sample.core.ui.activity;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -25,7 +30,8 @@ public class CoreBaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         actionBar = getSupportActionBar();
-        //actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#077da7")));
+
+//        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.appTxtColor)));
 
         try {
             ViewConfiguration config = ViewConfiguration.get(this);
@@ -39,6 +45,8 @@ public class CoreBaseActivity extends AppCompatActivity {
         }
     }
 
+
+
     @SuppressWarnings("unchecked")
     public <T extends View> T _findViewById(int viewId) {
         return (T) findViewById(viewId);
@@ -47,12 +55,16 @@ public class CoreBaseActivity extends AppCompatActivity {
     public void setActionBarTitle(int title) {
         if (actionBar != null) {
             actionBar.setTitle(title);
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.appTxtColor)));
+
         }
     }
 
     public void setActionBarTitle(CharSequence title) {
         if (actionBar != null) {
             actionBar.setTitle(title);
+           // actionBar.setTitle(Html.fromHtml(title,);
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.appTxtColor)));
         }
     }
 

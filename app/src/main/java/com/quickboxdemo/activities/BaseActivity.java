@@ -16,8 +16,6 @@ import com.quickboxdemo.App;
 import com.quickboxdemo.util.QBResRequestExecutor;
 import com.quickboxdemo.utils.Consts;
 
-
-
 /**
  * QuickBlox team
  */
@@ -40,15 +38,11 @@ public abstract class BaseActivity extends CoreBaseActivity {
     public void initDefaultActionBar() {
         String currentUserFullName = "";
         String currentRoomName = sharedPrefsHelper.get(Consts.PREF_CURREN_ROOM_NAME, "");
-
         if (sharedPrefsHelper.getQbUser() != null) {
             currentUserFullName = sharedPrefsHelper.getQbUser().getFullName();
         }
-
         setActionBarTitle(currentUserFullName);
-        //setActionbarSubTitle(String.format(getString(R.string.subtitle_text_logged_in_as), currentUserFullName));
     }
-
 
     public void setActionbarSubTitle(String subTitle) {
         if (actionBar != null)
@@ -99,7 +93,3 @@ public abstract class BaseActivity extends CoreBaseActivity {
 
     protected abstract View getSnackbarAnchorView();
 }
-
-
-
-

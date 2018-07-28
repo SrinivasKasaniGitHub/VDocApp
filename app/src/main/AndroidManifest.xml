@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -28,9 +29,10 @@
         tools:replace="android:allowBackup">
 
         <meta-data
-            tools:replace="android:value"
             android:name="android.support.VERSION"
-            android:value="25.3.1" />
+            android:value="25.3.1"
+            tools:replace="android:value" />
+
         <activity
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait">
@@ -47,10 +49,9 @@
             android:name=".activities.OpponentsActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:launchMode="singleTask"
-            android:theme="@style/VideoChatTheme"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.PermissionsActivity" />
+            android:screenOrientation="portrait"
+            android:theme="@style/VideoChatTheme" />
+        <activity android:name=".activities.PermissionsActivity" />
         <activity
             android:name=".activities.CallActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
@@ -60,12 +61,14 @@
             android:name=".activities.SettingsActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.RegisterActivity"/>
-        <activity android:name=".activities.DashBoardActivity"/>
-        <activity android:name=".activities.ForgotPasswordSctivity"/>
+        <activity android:name=".activities.RegisterActivity" />
+        <activity
+            android:name=".activities.DashBoardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/VideoChatTheme" />
+        <activity android:name=".activities.ForgotPasswordSctivity" />
 
-        <service
-            android:name=".services.CallService" />
+        <service android:name=".services.CallService" />
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
@@ -77,6 +80,7 @@
                 <category android:name="com.quickblox.sample.groupchatwebrtc" />
             </intent-filter>
         </receiver>
+
         <service
             android:name=".services.gcm.GcmPushListenerService"
             android:exported="false">
@@ -91,12 +95,16 @@
                 <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
+
         <meta-data
-            android:name="com.quickblox.messages.TYPE" android:value="GCM" />
+            android:name="com.quickblox.messages.TYPE"
+            android:value="GCM" />
         <meta-data
-            android:name="com.quickblox.messages.SENDER_ID" android:value="@string/sender_id" />
+            android:name="com.quickblox.messages.SENDER_ID"
+            android:value="@string/sender_id" />
         <meta-data
-            android:name="com.quickblox.messages.QB_ENVIRONMENT" android:value="DEVELOPMENT" />
+            android:name="com.quickblox.messages.QB_ENVIRONMENT"
+            android:value="DEVELOPMENT" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

@@ -38,12 +38,16 @@ public class CoreApp extends Application {
         return instance;
     }
 
-    public void initCredentials(){
+    public void initCredentials() {
         if (qbConfigs != null) {
            /* QBSettings.getInstance().init(getApplicationContext(), qbConfigs.getAppId(), qbConfigs.getAuthKey(), qbConfigs.getAuthSecret());
             QBSettings.getInstance().setAccountKey(qbConfigs.getAccountKey());*/
+
             QBSettings.getInstance().init(getApplicationContext(), "28783", "b5bVGCHHv6rcAmD", "ySwEpardeE7ZXHB");
             QBSettings.getInstance().setAccountKey("7yvNe17TnjNUqDoPwfqp");
+
+           /* QBSettings.getInstance().init(getApplicationContext(), "67361", "r7TxBbDpL9M64ha", "pKZCndA7kqtuO3E");
+            QBSettings.getInstance().setAccountKey("uXetpVJRSTUs4gLVhxj4");*/
 
             if (!TextUtils.isEmpty(qbConfigs.getApiDomain()) && !TextUtils.isEmpty(qbConfigs.getChatDomain())) {
                 QBSettings.getInstance().setEndpoints(qbConfigs.getApiDomain(), qbConfigs.getChatDomain(), ServiceZone.PRODUCTION);
@@ -52,11 +56,11 @@ public class CoreApp extends Application {
         }
     }
 
-    public QbConfigs getQbConfigs(){
+    public QbConfigs getQbConfigs() {
         return qbConfigs;
     }
 
-    protected String getQbConfigFileName(){
+    protected String getQbConfigFileName() {
         return QB_CONFIG_DEFAULT_FILE_NAME;
     }
 

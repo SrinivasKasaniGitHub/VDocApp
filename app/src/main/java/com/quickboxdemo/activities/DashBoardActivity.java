@@ -56,7 +56,7 @@ import java.util.Map;
  * Created by Srinivas on 2/21/2018.
  */
 
-public class DashBoardActivity extends AppCompatActivity {
+public class DashBoardActivity extends BaseActivity {
 
 
     private SharedPreferences mSharedPreferences;
@@ -80,17 +80,9 @@ public class DashBoardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        userName=(TextView)findViewById(R.id.userName);
-        logOUTBtn=(ImageButton)findViewById(R.id.logOUTBtn);
         sharedPrefsHelper = SharedPrefsHelper.getInstance();
         requestExecutor = App.getInstance().getQbResRequestExecutor();
-        currentUserFullName="";
-
-        if (sharedPrefsHelper.getQbUser() != null) {
-            currentUserFullName = sharedPrefsHelper.getQbUser().getFullName();
-            currentUser = sharedPrefsHelper.getQbUser();
-        }
-        userName.setText("VDoc ("+currentUserFullName+")");
+        initDefaultActionBar();
 
         pd = new ProgressDialog(DashBoardActivity.this);
         getSymptomsList();
@@ -115,17 +107,52 @@ public class DashBoardActivity extends AppCompatActivity {
 
             }
         });
-        logOUTBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.activity_opponents, menu);
+
+        MenuItem item=menu.findItem(R.id.update_opponents_list);
+        item.setVisible(false);
+
+
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.update_opponents_list:
+                return true;
+
+            case R.id.settings:
+                // showSettings();
+                return true;
+
+            case R.id.log_out:
+
                 removeAllUserData();
-                Intent loginAct=new Intent(getApplicationContext(),LoginActivity.class);
+                Intent loginAct = new Intent(getApplicationContext(), LoginActivity.class);
                 loginAct.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
                 finish();
                 startActivity(loginAct);
-            }
-        });
 
+                return true;
+
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected View getSnackbarAnchorView() {
+        return null;
     }
 
     private void removeAllUserData() {

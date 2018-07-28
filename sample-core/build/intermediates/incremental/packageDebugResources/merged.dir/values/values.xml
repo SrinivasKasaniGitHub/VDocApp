@@ -38,7 +38,7 @@
     <dimen name="padding_common_twice">16dp</dimen>
     <dimen name="splash_main_text_size">32sp</dimen>
     <dimen name="splash_version_text_size">12sp</dimen>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">eedf663e-8b47-4f49-ac73-3faab33ec7d9</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">d5ad1c65-a85b-4f5c-8b10-be45425cc31a</string>
     <string name="dlg_cancel">Cancel</string>
     <string name="dlg_choose_image_from">Select photo from…</string>
     <string name="dlg_error">Error</string>

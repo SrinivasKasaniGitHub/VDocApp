@@ -137,8 +137,7 @@ public class OpponentsActivity extends BaseActivity {
         webRtcSessionManager = WebRtcSessionManager.getInstance(getApplicationContext());
     }
 
-    private void
-    startLoadUsers() {
+    private void startLoadUsers() {
         showProgressDialog(R.string.dlg_loading_opponents);
         String currentRoomName = SharedPrefsHelper.getInstance().get(Consts.PREF_CURREN_ROOM_NAME);
         requestExecutor.loadUsersByTag(currentRoomName, new QBEntityCallback<ArrayList<QBUser>>() {
@@ -259,6 +258,8 @@ public class OpponentsActivity extends BaseActivity {
   //                              Log.d("arrayList", "" + serverOpponentsList.toString());
 
                             }
+
+                            Log.d("responce currList", "" + currentOpponentsList.toString());
 
                             Log.d("responce", "" + serverOpponentsList.toString());
                             finalOpponentsList = new ArrayList<>(jsonArray.length());
