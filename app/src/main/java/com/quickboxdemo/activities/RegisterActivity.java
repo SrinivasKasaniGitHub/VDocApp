@@ -176,7 +176,7 @@ public class RegisterActivity extends AppCompatActivity {
                     case R.id.radioGRpPatient:
                         lyt_doctor.setVisibility(View.GONE);
                         lyt_patient.setVisibility(View.VISIBLE);
-                        userType = "Patient";
+                        userType = "User";
                         cond_Type = "P";
                         break;
                     default:

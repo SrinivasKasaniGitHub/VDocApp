@@ -69,6 +69,8 @@ public class LoginActivity extends BaseActivity {
 
     private QBUser userForSave;
 
+    String user_Type;
+
     public static void start(Context context) {
         Intent intent = new Intent(context, LoginActivity.class);
         context.startActivity(intent);
@@ -80,22 +82,21 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_new);
         initUI();
-        progressDialog=new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this);
 
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-
-                if (!isEnteredUserNameValid()){
+                if (!isEnteredUserNameValid()) {
                     userNameEditText.requestFocus();
                     userNameEditText.setError("User Name not Empty !");
-                }else if (edt_login_pwd.getText().toString().equals("")){
+                } else if (edt_login_pwd.getText().toString().equals("")) {
                     edt_login_pwd.requestFocus();
                     edt_login_pwd.setError("Password is not Empty !");
-                }else {
-                    login_Authenticaation(userNameEditText.getText().toString(),edt_login_pwd.getText().toString());
+                } else {
+                    login_Authenticaation(userNameEditText.getText().toString(), edt_login_pwd.getText().toString());
                 }
 
 
@@ -110,7 +111,7 @@ public class LoginActivity extends BaseActivity {
         txt_Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent_Register=new Intent(getApplicationContext(),RegisterActivity.class);
+                Intent intent_Register = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intent_Register);
 
             }
@@ -119,7 +120,7 @@ public class LoginActivity extends BaseActivity {
         txt_forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent_forgot=new Intent(getApplicationContext(),ForgotPasswordSctivity.class);
+                Intent intent_forgot = new Intent(getApplicationContext(), ForgotPasswordSctivity.class);
                 startActivity(intent_forgot);
             }
         });
@@ -130,13 +131,13 @@ public class LoginActivity extends BaseActivity {
         return findViewById(R.id.root_view_login_activity);
     }
 
-    public void login_Authenticaation(final String dUserName,final String dPwd) {
+    public void login_Authenticaation(final String dUserName, final String dPwd) {
 
         RequestQueue requestQueue_Authenticaation = Volley.newRequestQueue(this);
         String tag_string_req = "authentication";
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        progressDialog.setMessage("Loading");
+        progressDialog.setMessage("Authentication is in Progress !");
         progressDialog.show();
         Map<String, String> params = new HashMap<String, String>();
 
@@ -147,35 +148,47 @@ public class LoginActivity extends BaseActivity {
         params.put("userType", "Doctor");
 
 
-        JSONObject jsonObject=new JSONObject(params);
+        JSONObject jsonObject = new JSONObject(params);
 
 
-        JsonObjectRequest req_Authentication = new JsonObjectRequest(Request.Method.POST,AppConfig.url_User_Authentication, jsonObject, new Response.Listener<JSONObject>() {
+        JsonObjectRequest req_Authentication = new JsonObjectRequest(Request.Method.POST, AppConfig.url_User_Authentication, jsonObject, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 progressDialog.dismiss();
 
                 try {
-                    if (null!=response.toString()){
-                        String reg_Responce_Code=response.getString("responseCode");
-                        String reg_responce=response.getString("response");
-                        if (reg_Responce_Code.equals("A100")){
+                    if (null != response.toString()) {
+                        Log.d("Login Res : ", response.toString());
+                        String reg_Responce_Code = response.getString("responseCode");
+                        String reg_responce = response.getString("response");
+                        user_Type = response.getString("userType");
+                        if (reg_Responce_Code.equals("A100")) {
                             showToast(reg_responce);
-                        }else if (reg_Responce_Code.equals("A000")){
+                        } else if (reg_Responce_Code.equals("A000")) {
                             showToast(reg_responce);
                             hideKeyboard();
+                            /*if ("Doctor".equals(user_Type)) {
+                                SharedPrefsHelper sharedPrefsHelper = SharedPrefsHelper.getInstance();
+                                sharedPrefsHelper.clearAllData();
+                                sharedPrefsHelper.docUserLoginSession(user_Type);
+                                Intent intent_Doctor_Availability = new Intent(getApplicationContext(), DoctorAvailability.class);
+                                intent_Doctor_Availability.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent_Doctor_Availability);
+
+                            } else {
+
+                                startSignUpNewUser(createUserWithEnteredData());
+                            }*/
                             startSignUpNewUser(createUserWithEnteredData());
-                        }else{
+
+                        } else {
                             showToast("User Login Failed please try again !");
                         }
 
 
-                    }else{
+                    } else {
                         showToast("User Login Failed !");
                     }
-
-
-
 
 
                 } catch (Exception e) {
@@ -187,7 +200,7 @@ public class LoginActivity extends BaseActivity {
             public void onErrorResponse(VolleyError error) {
                 Log.w("error in response", "Error: " + error.getMessage());
             }
-        }){
+        }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
@@ -197,6 +210,7 @@ public class LoginActivity extends BaseActivity {
         };
         requestQueue_Authenticaation.add(req_Authentication);
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -207,19 +221,21 @@ public class LoginActivity extends BaseActivity {
         setActionBarTitle(R.string.title_login_activity);
         userNameEditText = (EditText) findViewById(R.id.user_name);
         btn_Login = (Button) findViewById(R.id.btn_Login);
-        txt_Register=(AppCompatTextView)findViewById(R.id.txt_register);
-        txt_forgot=(AppCompatTextView)findViewById(R.id.txt_forgot);
+        txt_Register = (AppCompatTextView) findViewById(R.id.txt_register);
+        txt_forgot = (AppCompatTextView) findViewById(R.id.txt_forgot);
         userNameEditText.addTextChangedListener(new LoginEditTextWatcher(userNameEditText));
-        edt_login_pwd=(EditText)findViewById(R.id.login_pwd);
+        edt_login_pwd = (EditText) findViewById(R.id.login_pwd);
 
         chatRoomNameEditText = (EditText) findViewById(R.id.chat_room_name);
-        chatRoomNameEditText.setText("vdocOpionN");
+        //chatRoomNameEditText.setText("vdocOpionN");
+        chatRoomNameEditText.setText("vdocOpionTest");
         chatRoomNameEditText.addTextChangedListener(new LoginEditTextWatcher(chatRoomNameEditText));
     }
 
     public void showToast(final String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_login, menu);
@@ -284,9 +300,27 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void startOpponentsActivity() {
-        Intent intent_DashBoard = new Intent(getApplicationContext(), DashBoardActivity.class);
+
+
+        if ("Doctor".equals(user_Type)) {
+            SharedPrefsHelper sharedPrefsHelper = SharedPrefsHelper.getInstance();
+            sharedPrefsHelper.docUserLoginSession(user_Type);
+            Intent intent_Doctor_Availability = new Intent(getApplicationContext(), OpponentsActivity.class);
+            intent_Doctor_Availability.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent_Doctor_Availability.putExtra(Consts.EXTRA_IS_STARTED_FOR_CALL, false);
+            startActivity(intent_Doctor_Availability);
+
+
+        } else {
+
+            Intent intent_DashBoard = new Intent(getApplicationContext(), DashBoardActivity.class);
+            startActivity(intent_DashBoard);
+            finish();
+        }
+
+        /*Intent intent_DashBoard = new Intent(getApplicationContext(), DashBoardActivity.class);
         startActivity(intent_DashBoard);
-        finish();
+        finish();*/
     }
 
     private void saveUserData(QBUser qbUser) {

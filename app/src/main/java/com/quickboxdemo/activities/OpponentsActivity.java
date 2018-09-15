@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -61,6 +62,7 @@ public class OpponentsActivity extends BaseActivity {
     private static final long ON_ITEM_CLICK_DELAY = TimeUnit.SECONDS.toMillis(10);
     private OpponentsAdapter opponentsAdapter;
     private ListView opponentsListView;
+    TextView textView;
     private QBUser currentUser;
     private ArrayList<QBUser> currentOpponentsList;
     private ArrayList<QBUser> serverOpponentsList;
@@ -70,6 +72,7 @@ public class OpponentsActivity extends BaseActivity {
     private boolean isRunForCall;
     private WebRtcSessionManager webRtcSessionManager;
     ProgressDialog pd;
+    String UserType;
 
     private PermissionsChecker checker;
     public static void start(Context context, boolean isRunForCall) {
@@ -83,6 +86,9 @@ public class OpponentsActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opponents);
+
+        HashMap<String, String> user = sharedPrefsHelper.getDocUser();
+        UserType = user.get(SharedPrefsHelper.KEY_DOC_USER);
         pd = new ProgressDialog(this);
         initFields();
         initDefaultActionBar();
@@ -140,6 +146,7 @@ public class OpponentsActivity extends BaseActivity {
     private void startLoadUsers() {
         showProgressDialog(R.string.dlg_loading_opponents);
         String currentRoomName = SharedPrefsHelper.getInstance().get(Consts.PREF_CURREN_ROOM_NAME);
+
         requestExecutor.loadUsersByTag(currentRoomName, new QBEntityCallback<ArrayList<QBUser>>() {
             @Override
             public void onSuccess(ArrayList<QBUser> result, Bundle params) {
@@ -163,6 +170,16 @@ public class OpponentsActivity extends BaseActivity {
 
     private void initUi() {
         opponentsListView = (ListView) findViewById(R.id.list_opponents);
+        textView=(TextView)findViewById(R.id.txt_User);
+        if ("Doctor".equalsIgnoreCase(UserType)) {
+            textView.setVisibility(View.VISIBLE);
+            opponentsListView.setVisibility(View.GONE);
+
+        }else{
+            textView.setVisibility(View.GONE);
+            opponentsListView.setVisibility(View.VISIBLE);
+        }
+
     }
 
     private boolean isCurrentOpponentsListActual(ArrayList<QBUser> actualCurrentOpponentsList) {
@@ -195,6 +212,7 @@ public class OpponentsActivity extends BaseActivity {
 
 
 
+
         StringRequest request = new StringRequest(Request.Method.GET, AppConfig.url_Online_DoctorsList, new Response.Listener<String>() {
             @Override
             public void onResponse(String responce) {
@@ -205,7 +223,7 @@ public class OpponentsActivity extends BaseActivity {
                     try {
                         JSONArray jsonArray = new JSONArray(responce);
 
-                        Log.d("responce", "" + responce.toString());
+                       // Log.d("responce", "" + responce.toString());
                         if (jsonArray.length() > 0) {
                             serverOpponentsList = new ArrayList<>(jsonArray.length());
                             for (int i = 0; i < jsonArray.length(); i++) {
@@ -255,13 +273,13 @@ public class OpponentsActivity extends BaseActivity {
 
                                 serverOpponentsList.add(currentUser);
 
-  //                              Log.d("arrayList", "" + serverOpponentsList.toString());
+                           //    Log.d("arrayList_frm_server", "" + serverOpponentsList.toString());
 
                             }
 
-                            Log.d("responce currList", "" + currentOpponentsList.toString());
+                            Log.d("List_frm_Quickblx", "" + currentOpponentsList.toString());
 
-                            Log.d("responce", "" + serverOpponentsList.toString());
+                            Log.d("arrayList_frm_server", "" + serverOpponentsList.toString());
                             finalOpponentsList = new ArrayList<>(jsonArray.length());
                             finalServerOpponentsList = new ArrayList<>(jsonArray.length());
                             for (QBUser person2 : currentOpponentsList) {
@@ -347,6 +365,11 @@ public class OpponentsActivity extends BaseActivity {
             getMenuInflater().inflate(R.menu.activity_selected_opponents, menu);
         } else {
             getMenuInflater().inflate(R.menu.activity_opponents, menu);
+            if ("Doctor".equalsIgnoreCase(UserType)) {
+                menu.findItem(R.id.update_opponents_list).setVisible(false);
+            }else{
+                menu.findItem(R.id.update_opponents_list).setVisible(true);
+            }
         }
 
         return super.onCreateOptionsMenu(menu);
@@ -355,6 +378,7 @@ public class OpponentsActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
 
         switch (id) {
             case R.id.update_opponents_list:

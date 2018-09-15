@@ -34,6 +34,7 @@ import com.quickblox.sample.core.utils.SharedPrefsHelper;
 import com.quickblox.users.model.QBUser;
 import com.quickboxdemo.App;
 import com.quickboxdemo.R;
+import com.quickboxdemo.adapters.SymptomsPOJO;
 import com.quickboxdemo.util.QBResRequestExecutor;
 import com.quickboxdemo.utils.Consts;
 import com.quickboxdemo.utils.UsersUtils;
@@ -64,7 +65,7 @@ public class DashBoardActivity extends BaseActivity {
     public ArrayList<String> symptoms_Array;
 
     private GridView gridView;
-    private View btnGo;
+    View btnGo;
     private ArrayList<String> selectedStrings;
     private static String[] numbers;
     SharedPrefsHelper sharedPrefsHelper;
@@ -75,6 +76,7 @@ public class DashBoardActivity extends BaseActivity {
     ImageButton logOUTBtn;
     protected QBResRequestExecutor requestExecutor;
     private QBUser currentUser;
+    ArrayList<SymptomsPOJO> symptomsPOJOArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +99,7 @@ public class DashBoardActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-
-                me();
+                selected_Symptoms();
                 Intent intent = new Intent(getApplicationContext(), OpponentsActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 intent.putExtra(Consts.EXTRA_IS_STARTED_FOR_CALL, false);
@@ -186,21 +187,24 @@ public class DashBoardActivity extends BaseActivity {
         pd.setMessage("Loading");
         pd.show();
 
-
         StringRequest request = new StringRequest(Request.Method.GET, AppConfig.url_SypmtomsList, new Response.Listener<String>() {
             @Override
             public void onResponse(String responce) {
                 pd.dismiss();
                 Log.d("responce", "" + responce);
+                SymptomsPOJO symptomsPOJO=new SymptomsPOJO();
                 if (null != responce) {
                     try {
                         JSONArray jsonArray = new JSONArray(responce);
                         if (jsonArray.length() > 0) {
+                            symptomsPOJOArrayList=new ArrayList<>(jsonArray.length());
                             symptoms_Array = new ArrayList<>(jsonArray.length());
                             numbers = new String[jsonArray.length()];
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 String symptom = jsonObject.getString("symptom");
+                                symptomsPOJO.setPrimarySymptom(symptom);
+                                //JSONArray jsonArray1= new JSONArray()
                                 symptoms_Array.add(symptom);
                                 numbers[i] = symptoms_Array.get(i);
                             }
@@ -258,7 +262,7 @@ public class DashBoardActivity extends BaseActivity {
     }
 
 
-    public void me() {
+    public void selected_Symptoms() {
         String jsdhf = "";
         if (selectedStrings.size() > 0) {
             for (int i = 0; i < selectedStrings.size(); i++) {
@@ -266,9 +270,8 @@ public class DashBoardActivity extends BaseActivity {
                     jsdhf = jsdhf + selectedStrings.get(i) + ", ";
                 } else {
                     jsdhf = jsdhf + selectedStrings.get(i) + ".";
-                    Toast.makeText(getApplicationContext(), "Selected : " + jsdhf, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Selected Symptoms are: " + jsdhf, Toast.LENGTH_LONG).show();
                 }
-
             }
         }
     }

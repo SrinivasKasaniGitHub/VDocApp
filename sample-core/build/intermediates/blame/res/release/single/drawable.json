@@ -1,11 +1,11 @@
 [
     {
-        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\release\\drawable\\common_google_signin_btn_text_dark_focused.xml",
-        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\8d06ca5ba13e81b97bfc5cbc1de21912a673f036\\output\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
-    },
-    {
         "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\release\\drawable\\abc_cab_background_top_material.xml",
         "source": "C:\\Users\\Srinivas\\.android\\build-cache\\d51c52b45832ca10833a6ce5616312deb8550ee2\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\release\\drawable\\common_google_signin_btn_text_dark_focused.xml",
+        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\8d06ca5ba13e81b97bfc5cbc1de21912a673f036\\output\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
     },
     {
         "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\release\\drawable\\common_google_signin_btn_text_dark_normal.xml",

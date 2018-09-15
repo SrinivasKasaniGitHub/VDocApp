@@ -67,6 +67,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/VideoChatTheme" />
         <activity android:name=".activities.ForgotPasswordSctivity" />
+        <activity android:name=".activities.DoctorAvailability"/>
+        <activity
+            android:name=".activities.OpponentsUserActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/VideoChatTheme" />
+
 
         <service android:name=".services.CallService" />
         <receiver

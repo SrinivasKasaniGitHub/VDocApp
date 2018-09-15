@@ -56,36 +56,36 @@
         "source": "C:\\Users\\Srinivas\\.android\\build-cache\\d51c52b45832ca10833a6ce5616312deb8550ee2\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
-        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
-        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\d51c52b45832ca10833a6ce5616312deb8550ee2\\output\\res\\layout\\abc_dialog_title_material.xml"
-    },
-    {
-        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\d51c52b45832ca10833a6ce5616312deb8550ee2\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
+        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\350801a4907898b874c735978faef689f0d89f61\\output\\res\\layout\\design_navigation_item_header.xml"
     },
     {
         "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "C:\\Users\\Srinivas\\.android\\build-cache\\d51c52b45832ca10833a6ce5616312deb8550ee2\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
-        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
-        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\350801a4907898b874c735978faef689f0d89f61\\output\\res\\layout\\design_navigation_item_header.xml"
+        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\d51c52b45832ca10833a6ce5616312deb8550ee2\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
-        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\ff8d3dd5bae80b3f88ce81bb7285bc50425d4489\\output\\res\\layout\\notification_template_part_chronometer.xml"
+        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\d51c52b45832ca10833a6ce5616312deb8550ee2\\output\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
         "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\Srinivas\\.android\\build-cache\\d51c52b45832ca10833a6ce5616312deb8550ee2\\output\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
-        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
-        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\350801a4907898b874c735978faef689f0d89f61\\output\\res\\layout\\design_menu_item_action_area.xml"
+        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\ff8d3dd5bae80b3f88ce81bb7285bc50425d4489\\output\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
         "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_custom.xml",
         "source": "C:\\Users\\Srinivas\\.android\\build-cache\\7ec1040ff6a5266c7037917c2da3cbc5207de679\\output\\res\\layout\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\350801a4907898b874c735978faef689f0d89f61\\output\\res\\layout\\design_menu_item_action_area.xml"
     },
     {
         "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",

@@ -71,6 +71,7 @@
     <color name="abc_search_url_text_selected">@android:color/black</color>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
+    <color name="appTxtColor">#4682B4</color>
     <color name="background_app_color">#ffffff</color>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
@@ -85,12 +86,12 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <color name="color_accent">@color/color_green_qb</color>
+    <color name="color_accent">@color/white</color>
     <color name="color_blue_qb">#046ad0</color>
     <color name="color_green_qb">#4ad24d</color>
     <color name="color_grey">#d3d3d3</color>
     <color name="color_primary">@color/white</color>
-    <color name="color_primary_dark">#d0d0d0</color>
+    <color name="color_primary_dark">@color/white</color>
     <color name="color_username_rectangle">#99000000</color>
     <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
     <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
@@ -807,7 +808,7 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">d5ad1c65-a85b-4f5c-8b10-be45425cc31a</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">a8dcc4a2-f62b-4feb-8b33-cd50fd325baf</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns2:g id="app_name">%1$s</ns2:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -864,13 +865,13 @@
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="colorAccent">@color/color_accent</item>
-
-        <item name="android:windowBackground">@color/background_app_color</item>
+        <item name="android:windowBackground">@color/appTxtColor</item>
     </style>
     <style name="AppTheme.Dark" parent="AppTheme">
-        <item name="android:background">@color/black</item>
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryDark">@color/black</item>
+        <item name="android:background">@color/color_accent</item>
+        <item name="colorPrimary">@color/color_accent</item>
+        <item name="colorPrimaryDark">@color/color_accent</item>
+        <item name="android:textColorPrimary">@color/color_accent</item>
         <item name="actionBarTheme">@style/DarkActionBarTheme</item>
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
@@ -1928,7 +1929,11 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_centerInParent">true</item>
     </style>
-    <style name="DarkActionBarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="DarkActionBarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
+    </style>
     <style name="FabStyle" parent="WrapContent">
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_alignParentRight">true</item>

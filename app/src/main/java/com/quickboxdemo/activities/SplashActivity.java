@@ -9,10 +9,14 @@ import com.quickblox.sample.core.utils.SharedPrefsHelper;
 import com.quickblox.users.model.QBUser;
 import com.quickboxdemo.R;
 import com.quickboxdemo.services.CallService;
+import com.quickboxdemo.utils.Consts;
+
+import java.util.HashMap;
 
 public class SplashActivity extends CoreSplashActivity {
 
     private SharedPrefsHelper sharedPrefsHelper;
+    String UserType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +26,17 @@ public class SplashActivity extends CoreSplashActivity {
 
         if (sharedPrefsHelper.hasQbUser()) {
             startLoginService(sharedPrefsHelper.getQbUser());
-            startOpponentsActivity();
+            HashMap<String, String> user = sharedPrefsHelper.getDocUser();
+            UserType = user.get(SharedPrefsHelper.KEY_DOC_USER);
+            if ("Doctor".equals(UserType)){
+                Intent intent_Doctor_Availability = new Intent(getApplicationContext(), OpponentsActivity.class);
+                intent_Doctor_Availability.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent_Doctor_Availability.putExtra(Consts.EXTRA_IS_STARTED_FOR_CALL, false);
+                startActivity(intent_Doctor_Availability);
+                finish();
+            }else {
+                startOpponentsActivity();
+            }
             return;
         }
 

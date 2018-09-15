@@ -4312,7 +4312,14 @@
                     "endOffset": 63623
                 },
                 "from": {
-                    "file": "E:\\IQApps\\VDocApp\\sample-core\\src\\main\\res\\values\\com_crashlytics_export_strings.xml"
+                    "file": "E:\\IQApps\\VDocApp\\sample-core\\src\\main\\res\\values\\com_crashlytics_export_strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 0,
+                        "startOffset": 311,
+                        "endColumn": 162,
+                        "endOffset": 473
+                    }
                 }
             },
             {
@@ -6745,15 +6752,7 @@
                     "endOffset": 135564
                 },
                 "from": {
-                    "file": "E:\\IQApps\\VDocApp\\sample-core\\src\\main\\res\\values\\themes.xml",
-                    "position": {
-                        "startLine": 25,
-                        "startColumn": 4,
-                        "startOffset": 1098,
-                        "endLine": 29,
-                        "endColumn": 12,
-                        "endOffset": 1401
-                    }
+                    "file": "E:\\IQApps\\VDocApp\\sample-core\\src\\main\\res\\values\\themes.xml"
                 }
             },
             {

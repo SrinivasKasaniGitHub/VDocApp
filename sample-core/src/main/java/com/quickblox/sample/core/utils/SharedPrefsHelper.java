@@ -10,6 +10,7 @@ import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -22,9 +23,13 @@ public class SharedPrefsHelper {
     private static final String QB_USER_FULL_NAME = "qb_user_full_name";
     private static final String QB_USER_TAGS = "qb_user_tags";
 
+    public static final String KEY_DOC_USER = "docUser";
+
     private static SharedPrefsHelper instance;
 
     private SharedPreferences sharedPreferences;
+
+    SharedPreferences.Editor editor;
 
     public static synchronized SharedPrefsHelper getInstance() {
         if (instance == null) {
@@ -37,6 +42,23 @@ public class SharedPrefsHelper {
     private SharedPrefsHelper() {
         instance = this;
         sharedPreferences = CoreApp.getInstance().getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE);
+        editor=sharedPreferences.edit();
+    }
+
+
+    public void docUserLoginSession(String name) {
+
+        // Storing name in pref
+        editor.putString(KEY_DOC_USER, name);
+        editor.commit();
+    }
+    public HashMap<String, String> getDocUser() {
+        HashMap<String, String> user = new HashMap<String, String>();
+        // user name
+        user.put(KEY_DOC_USER, sharedPreferences.getString(KEY_DOC_USER, null));
+
+        // return user
+        return user;
     }
 
     public void delete(String key) {

@@ -6,15 +6,14 @@
     <string name="splash_app_title">Video &amp; Audio \nChat Sample</string>
     <string name="splash_create_session_error">Create session errors:</string>
 
-
     <!-- Dialogs strings. -->
     <string name="dlg_signal_error">Disconnected… Please check your Internet connection!</string>
     <string name="dlg_login">Login…</string>
     <string name="dlg_sign_in">Sign In…</string>
     <string name="dlg_updating_user">Updating user…</string>
-    <string name="dlg_creating_new_user">Creating new user…</string>
+    <string name="dlg_creating_new_user">Loading…</string>
     <string name="dlg_logout">Logout…</string>
-    <string name="dlg_loading_opponents">Loading opponents…</string>
+    <string name="dlg_loading_opponents">Loading Doctors…</string>
 
 
     <!-- Errors strings. -->
@@ -215,5 +214,12 @@
     <string name="login">Enter Phone Number</string>
     <string name="username">User Name</string>
     <string name="login_submit">LOG IN</string>
+
+
+  <string-array name="charityBill">
+      <item >Select Type</item>
+      <item>Charity</item>
+      <item>Bill</item>
+  </string-array>
 
 </resources>

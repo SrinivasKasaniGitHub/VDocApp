@@ -10,10 +10,22 @@
         tools:ignore="RtlHardcoded"
         android:visibility="invisible"/>
 
+    <TextView
+        android:id="@+id/txt_User"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recent Call List(Work in progress)"
+        android:textSize="25sp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:textColor="@color/oponentsTxtColor"
+        android:layout_marginTop="250dp"/>
+
     <ListView
         android:id="@+id/list_opponents"
         style="@style/MatchWidth"
         android:divider="@android:color/transparent"
-        android:paddingTop="@dimen/padding_top" />
+        android:paddingTop="@dimen/padding_top"
+        android:visibility="visible"/>
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.quickboxdemo.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -34,10 +35,18 @@ public class ScreenShareFragment extends BaseToolBarFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  super.onCreateView(inflater, container, savedInstanceState);
 
-        MyAdapter adapter = new MyAdapter(getChildFragmentManager());
+        /*MyAdapter adapter = new MyAdapter(getChildFragmentManager());
 
         ViewPager pager = (ViewPager) view.findViewById(R.id.pager);
-        pager.setAdapter(adapter);
+        pager.setAdapter(adapter);*/
+
+        Intent intent = new Intent();
+        intent.setAction(android.content.Intent.ACTION_VIEW);
+        intent.setType("image/*");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+
+
 
         toolbar.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
         return view;

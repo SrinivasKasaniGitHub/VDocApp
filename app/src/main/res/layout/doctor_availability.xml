@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        style="@style/header_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true"
+            android:text="Doctors Availability Time slots"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            >
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_DatePicker"
+                android:background="@drawable/background"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Date"
+                android:textColor="#FFFFFF"
+                android:layout_margin="5dp"
+                />
+            <android.support.v7.widget.AppCompatButton
+                android:text="Time"
+                android:id="@+id/btn_TimePicker"
+                android:background="@drawable/background"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:textColor="#FFFFFF"
+                android:layout_weight="1"
+                android:layout_margin="5dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:entries="@array/charityBill"
+                android:layout_weight="2"
+                android:layout_margin="5dp">
+
+            </Spinner>
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_add"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Add"
+                android:textColor="#FFFFFF"
+                android:layout_margin="5dp"
+                android:background="@drawable/background"/>
+        </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/lyt_TimeSlots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom">
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_Submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:text="Submit"
+            android:textColor="#FFFFFF"
+            android:layout_margin="5dp"
+            android:background="@drawable/background"/>
+
+    </LinearLayout>
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Work in Progress"
+        android:layout_marginTop="25dp"
+        android:textSize="30dp"/>
+
+
+
+
+
+
+</LinearLayout>

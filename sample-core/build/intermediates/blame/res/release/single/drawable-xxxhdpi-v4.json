@@ -1,11 +1,11 @@
 [
     {
-        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi-v4\\abc_ic_star_black_36dp.png",
-        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\d51c52b45832ca10833a6ce5616312deb8550ee2\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_36dp.png"
-    },
-    {
         "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "C:\\Users\\Srinivas\\.android\\build-cache\\d51c52b45832ca10833a6ce5616312deb8550ee2\\output\\res\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi-v4\\abc_ic_star_black_36dp.png",
+        "source": "C:\\Users\\Srinivas\\.android\\build-cache\\d51c52b45832ca10833a6ce5616312deb8550ee2\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
         "merged": "E:\\IQApps\\VDocApp\\sample-core\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
